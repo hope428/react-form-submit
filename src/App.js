@@ -1,8 +1,12 @@
 import './App.css';
+import Post from './Components/Post';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <main>
+      <h1>Hello World!</h1>
+      <Post author="Snoopy" body="Merry Christmas"/>
+    </main>
   );
 }
 
