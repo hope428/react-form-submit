@@ -1,0 +1,26 @@
+.form {
+    border-radius: 6px;
+    background-color: #7f60ba;
+    width: 20rem;
+    margin: 2rem auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+.form label {
+    display: block;
+    font-weight: bold;
+    color: #eadbfb;
+    margin-bottom: .5rem;
+}
+
+.form input, textarea {
+    background-color: #b79fd3;
+    border-radius: 6px;
+    border: none;
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.5rem;
+    color: #28262c;
+}
