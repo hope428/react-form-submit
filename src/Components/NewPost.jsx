@@ -1,7 +1,7 @@
 import classes from './NewPost.module.css'
 import {useState} from 'react'
 
-function NewPost({bodyHandler}){
+function NewPost({bodyHandler, authorHandler}){
     return (
         <form className={classes.form}>
             <p>
@@ -10,7 +10,7 @@ function NewPost({bodyHandler}){
             </p>
             <p>
                 <label htmlFor="name">Author</label>
-                <input type="text" id="name" required />
+                <input type="text" id="name" required onChange={authorHandler}/>
             </p>
         </form>
     )
