@@ -4,14 +4,11 @@ import classes from "./PostsList.module.css";
 import NewPost from "./NewPost";
 import Modal from "./Modal";
 
-function PostsLists() {
+function PostsList({modalOpen, showModalHandler}) {
   const [postText, setPostText] = React.useState();
   const [authorText, setAuthorText] = React.useState();
-  const [modalOpen, setModalOpen] = React.useState(true) 
 
-  const showModalHandler = () => {
-    setModalOpen((prevState) => !prevState)
-  }
+ 
 
   const textChangeHandler = (e) => {
     setPostText(e.target.value);
@@ -23,12 +20,12 @@ function PostsLists() {
 
   return (
     <>
-      {modalOpen ? <Modal modalHandler={showModalHandler}>
+      {modalOpen && <Modal modalHandler={showModalHandler}>
         <NewPost
           bodyHandler={textChangeHandler}
           authorHandler={authorChangeHandler}
         />
-      </Modal> : null}
+      </Modal>}
       
       <ul className={classes.postlist}>
         <Post author="Snoopy" body="Merry Christmas" />
@@ -39,4 +36,4 @@ function PostsLists() {
   );
 }
 
-export default PostsLists;
+export default PostsList;

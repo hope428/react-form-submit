@@ -1,5 +1,4 @@
 import classes from './NewPost.module.css'
-import {useState} from 'react'
 
 function NewPost({bodyHandler, authorHandler}){
 
