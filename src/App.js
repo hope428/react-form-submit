@@ -4,7 +4,7 @@ import PostsList from "./Components/PostsList";
 import { useState } from "react";
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
   const showModalHandler = () => {
     setModalOpen((prevState) => !prevState);
   };
