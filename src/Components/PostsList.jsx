@@ -9,11 +9,7 @@ function PostsList({modalOpen, showModalHandler}) {
   const [posts, setPosts] = useState([])
 
   const postHandler = (postData) => {
-    setPosts(prevPosts => {
-      return (
-        [{text: postData.text, author: postData.author}, ...prevPosts]
-      )
-    })
+    setPosts(prevPosts => [postData, ...prevPosts])
     showModalHandler()
   }
 
@@ -25,10 +21,14 @@ function PostsList({modalOpen, showModalHandler}) {
           showModalHandler={showModalHandler}
         />
       </Modal>}
-      
+      {posts.length > 0 ?
       <ul className={classes.postlist}>
-        {posts.map(post => <Post body={post.text} author={post.author}/>)}
+        {posts.map(post => <Post key={post.body} body={post.text} author={post.author}/>)}
       </ul>
+      : <div className={classes.empty}>
+        <h2>There are no posts yet...</h2>
+        <p>Start adding some!</p>
+        </div>}
     </>
   );
 }
