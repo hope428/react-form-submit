@@ -5,38 +5,24 @@ import NewPost from "./NewPost";
 import Modal from "./Modal";
 
 function PostsList({modalOpen, showModalHandler}) {
-  const [postText, setPostText] = useState();
-  const [authorText, setAuthorText] = useState();
+  
   const [posts, setPosts] = useState([])
- 
 
-  const textChangeHandler = (e) => {
-    setPostText(e.target.value);
-  };
-
-  const authorChangeHandler = (e) => {
-    setAuthorText(e.target.value);
-  };
-
-  const postHandler = (e) => {
-    e.preventDefault()
+  const postHandler = (postData) => {
     setPosts(prevPosts => {
       return (
-        [...prevPosts, {text: postText, author: authorText}]
+        [{text: postData.text, author: postData.author}, ...prevPosts]
       )
     })
     showModalHandler()
   }
 
-
   return (
     <>
       {modalOpen && <Modal modalHandler={showModalHandler}>
         <NewPost
-          bodyHandler={textChangeHandler}
-          authorHandler={authorChangeHandler}
-          submitPost={postHandler}
-
+          onAddPost={postHandler}
+          showModalHandler={showModalHandler}
         />
       </Modal>}
       
