@@ -3,6 +3,7 @@ import MainHeader from "./Components/MainHeader";
 import PostsList from "./Components/PostsList";
 import { useState } from "react";
 
+
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const showModalHandler = () => {
