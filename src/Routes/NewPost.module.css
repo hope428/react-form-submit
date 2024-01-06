@@ -39,3 +39,10 @@
 .button:hover {
     background-color: #8c6cf7;
 }
+
+.actions {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    gap: 1rem;
+}

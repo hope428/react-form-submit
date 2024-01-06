@@ -1,17 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import Posts from "./Routes/Posts";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import NewPost from "./Components/NewPost";
+import NewPost from "./Routes/NewPost";
+import RootLayout from "./Routes/RootLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
-  { path: '/',  },
-  { path: "/", element: <App /> },
-  { path: "/create-post", element: <NewPost /> },
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Posts />,
+        children: [{ path: "/create-post", element: <NewPost /> }],
+      },
+    ],
+  },
 ]);
 
 root.render(

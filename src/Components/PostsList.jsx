@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
-import NewPost from "./NewPost";
-import Modal from "./Modal";
 
-function PostsList({ modalOpen, showModalHandler }) {
+function PostsList() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
@@ -30,19 +28,10 @@ function PostsList({ modalOpen, showModalHandler }) {
         "Content-Type": "application/json",
       },
     });
-    showModalHandler();
   };
 
   return (
     <>
-      {modalOpen && (
-        <Modal modalHandler={showModalHandler}>
-          <NewPost
-            onAddPost={postHandler}
-            showModalHandler={showModalHandler}
-          />
-        </Modal>
-      )}
       {!isLoading && posts.length > 0 && (
         <ul className={classes.postlist}>
           {posts.map((post) => (
